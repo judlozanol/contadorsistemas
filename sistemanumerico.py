@@ -12,43 +12,34 @@ class SistemaNumerico():
         sum_base_10 = 0
 
         if output_base == 2:
-            return (bin(input_number)[2:])
-
-        elif input_base != 10:
-            reversed_input_number = input_number[::-1]
-            hex_helper_dict = {'a' : 10 , 'b' : 11 , 'c' : 12 , 'd' : 13 , 'e' : 14 , 'f' : 15}
-            for index, number in enumerate(reversed_input_number):
-                for key,value in hex_helper_dict.items():
-                    if str(number).lower() == key:
-                        number = value
-                sum_base_10 += (int(number)*(int(input_base)**index))
-
-        elif input_base == 10:
-            sum_base_10 = int(input_number)
+            self.valor=(bin(input_number)[2:])
+        else:
+            if input_base == 10:
+                sum_base_10 = int(input_number)
 
 
-        while sum_base_10 > 0:
-            divided = sum_base_10// int(output_base)
-            remainder_list.append(str(sum_base_10 % int(output_base)))
-            sum_base_10 = divided
+            while sum_base_10 > 0:
+                divided = sum_base_10// int(output_base)
+                remainder_list.append(str(sum_base_10 % int(output_base)))
+                sum_base_10 = divided
 
-        if int(output_base) == 16:
-            hex_dict = {'10' : 'a' , '11' : 'b' , '12' : 'c' , '13' : 'd' , '14' : 'e' , '15' : 'f'}
+            if int(output_base) == 16:
+                hex_dict = {'10' : 'a' , '11' : 'b' , '12' : 'c' , '13' : 'd' , '14' : 'e' , '15' : 'f'}
+                for index, each in enumerate(remainder_list):
+                    for key, value in hex_dict.items():
+                        if each == key:
+                            remainder_list[index] = value
 
-            for index, each in enumerate(remainder_list):
-                for key, value in hex_dict.items():
-                    if each == key:
-                        remainder_list[index] = value
-
-        self.valor= ''.join(remainder_list[::-1])
+            self.valor= ''.join(remainder_list[::-1])
         
     def avanzar(self):
          self.cuenta+=1
          self.convertir_sistema()
+
 if __name__=="__main__":
         p=SistemaNumerico()
-        p.cuenta=10101011
-        p.sistema=16
+        p.cuenta=113
+        p.sistema=8
     
         p.avanzar()
         print(p.valor)

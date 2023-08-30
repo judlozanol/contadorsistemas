@@ -4,3 +4,4 @@ class Decimal(SistemaNumerico):
     def __init__(self):
         self.cuenta=0
         self.sistema=10
+        self.valor=0

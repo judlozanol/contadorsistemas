@@ -24,3 +24,5 @@ input("Presione enter para Iniciar el conteo...")
 for i in range(101):
     print(p.valor)
     p.avanzar()
+print("\n\tCONTEO FINALIZADO\n")
+print("\t◥------◥\n\tl ● ▄ ◉ l ѠOOƑ!\n\tl‿/ʊ\‿l\n\tl══o══l\n\t︳ ︳︳ l⊃\n\tఋ︵ ఋ\n")
